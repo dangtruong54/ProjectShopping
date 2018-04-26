@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import ItemProduct from './ItemProduct';
-import { connect } from 'react-redux';
+import * as config from './../constants/config';
 
 class ListProduct extends Component {
     render() {
-        let {listItem} = this.props;
-   
+        let listItem = JSON.parse(localStorage.getItem(config.GET_ITEM_FROM_LOCALSTOAGE));
+        console.log(listItem);
         let itemElement;
-        if(listItem !== null) {
+        if(listItem.length > 0) {
             itemElement = listItem.map((item, index) => {
                 return <ItemProduct key={index} item={item} />
             })
+        }else{
+            itemElement = <p>Not have product!</p>;
         }
-
-
         return (
             <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div className="panel panel-primary"> 
@@ -31,10 +31,4 @@ class ListProduct extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        listItem : state.listProduct
-    }
-}
-
-export default connect(mapStateToProps, null)(ListProduct);
+export default ListProduct;

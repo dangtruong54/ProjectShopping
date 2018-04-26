@@ -35,9 +35,9 @@ let defaulState = [
     }   
 ];
 
-//let productsCart = localStorage.setItem(config.GET_ITEM_FROM_LOCALSTOAGE, JSON.stringify(defaulState));
-
-//defaulState = [];
+let productsCart = localStorage.setItem(config.GET_ITEM_FROM_LOCALSTOAGE, JSON.stringify(defaulState));
+// let productsCart = localStorage.setItem(config.GET_ITEM_FROM_LOCALSTOAGE, JSON.stringify(''));
+defaulState = [];
 
 const listProduct = (state = defaulState, action) => {   
     return state;
