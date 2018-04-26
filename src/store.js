@@ -5,5 +5,5 @@ const store = createStore(
     projectShopping, /* preloadedState, */
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-console.log('INIT', store.getState());
+//console.log('INIT', store.getState());
 export default store;

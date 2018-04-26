@@ -1,0 +1,1 @@
+export const GET_ITEM_FROM_LOCALSTOAGE = 'products';

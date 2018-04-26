@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import listproduct from './listproduct';
+import listProduct from './listProduct';
+import cartInfo from './cartInfo';
 
 const projectShopping = combineReducers({
-    listproduct
+    listProduct,
+    cartInfo
 });
 
 export default projectShopping;
