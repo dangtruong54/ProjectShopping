@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class CartItem extends Component {
+
+    constructor(props){
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+
+        this.state = {
+            numberProduct: this.props.item.quantity
+        }        
+    }
+
+    handleChange(event){
+        this.setState({numberProduct: event.target.value});
+    }
+
     render(){
+    
+        let {item, index} = this.props;     
+     
+        let totalPriceElementCart = item.price * item.quantity;
 
-        let elementCart = this.props.itemCart;
-
-        // if(!elementCart.length > 0) return null
-
-        // elementCart = 
-        
         return(
             <tr>
-                <th scope="row">1</th>
-                <td>Lorem ipsum.</td>
-                <td>12 USD</td>
-                <td><input name="cart-item-quantity-1" type="number" defaultValue="{1}" min="{1}"/></td>
-                <td><strong>12 USD</strong></td>
+                <th scope="row">{index + 1}</th>
+                <td>{item.title}</td>
+                <td>{item.price} USD</td>
+                <td><input name="numberProduct" onChange={this.handleChange} type="number" value={this.state.numberProduct} min="{1}"/></td>
+                <td><strong>{totalPriceElementCart} USD</strong></td>
                 <td>
                     <a className="label label-info update-cart-item" role='button' data-product="">Update</a>
                     <a className="label label-danger delete-cart-item" role='button' data-product="">Delete</a>
@@ -26,10 +37,4 @@ class CartItem extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return{
-        itemCart:  state.cartInfo
-    }  
-}
-
-export default connect(mapStateToProps, null)(CartItem);
+export default CartItem;

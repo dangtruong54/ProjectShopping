@@ -5,7 +5,7 @@ import * as config from './../constants/config';
 class ListProduct extends Component {
     render() {
         let listItem = JSON.parse(localStorage.getItem(config.GET_ITEM_FROM_LOCALSTOAGE));
-        console.log(listItem);
+  
         let itemElement;
         if(listItem.length > 0) {
             itemElement = listItem.map((item, index) => {

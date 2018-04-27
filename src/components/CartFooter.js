@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import * as config from './../constants/config';
+// import * as config from './../constants/config';
 
 class CartFooter extends Component {
     render() {
-        let listProducts = JSON.parse(localStorage.getItem(config.GET_ITEM_FROM_LOCALSTOAGE));
+        let listProducts = ''; 
+
         let statusCart = <tr><th colSpan="6">Empty product in your cart</th></tr>;
         if(listProducts.length > 0){
             statusCart = 

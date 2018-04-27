@@ -1,7 +1,8 @@
-import * as config from './../constants/config';
+// import * as config from './../constants/config';
 
 let defaulState = [
     {
+        id: 'aplusautomation',
         title: 'aplusautomation',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dicta asperiores veniam repellat unde debitis quisquam magnam magni ut deleniti!',
         price: 12,
@@ -10,6 +11,7 @@ let defaulState = [
         image: '/images/aplusautomation.jpg'
     },
     {
+        id:'aplusmedia',
         title: 'aplus media',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dicta asperiores veniam repellat unde debitis quisquam magnam magni ut deleniti!',
         price: 12,
@@ -18,6 +20,7 @@ let defaulState = [
         image: '/images/aplus-media.jpg'
     },
     {
+        id: 'robofigcombo',
         title: 'robo fig combo',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dicta asperiores veniam repellat unde debitis quisquam magnam magni ut deleniti!',
         price: 12,
@@ -26,6 +29,7 @@ let defaulState = [
         image: '/images/robo_fig_combo.jpg'
     },
     {
+        id: 'targetleapfrog',
         title: 'target leap frog',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dicta asperiores veniam repellat unde debitis quisquam magnam magni ut deleniti!',
         price: 12,
@@ -34,10 +38,6 @@ let defaulState = [
         image: '/images/target-leap-frog.jpg'
     }   
 ];
-
-let productsCart = localStorage.setItem(config.GET_ITEM_FROM_LOCALSTOAGE, JSON.stringify(defaulState));
-// let productsCart = localStorage.setItem(config.GET_ITEM_FROM_LOCALSTOAGE, JSON.stringify(''));
-defaulState = [];
 
 const listProduct = (state = defaulState, action) => {   
     return state;

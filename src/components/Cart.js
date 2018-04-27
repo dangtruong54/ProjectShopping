@@ -21,13 +21,10 @@ class Cart extends Component {
 									<th width="25%">Action</th>
 								</tr>
 							</thead>
-							<tbody id="my-cart-body">
 
                             {/* START CART BODY */}
                                 <CartInfo />
-                            {/* END CART BODY */}
-
-                            </tbody>
+                            {/* END CART BODY */}        
 
                             {/* START CART FOOTER */}
                                 <CartFooter />
