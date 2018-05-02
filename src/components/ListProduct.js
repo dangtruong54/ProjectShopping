@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ItemProduct from './ItemProduct';
-import * as config from './../constants/config';
+import { connect } from 'react-redux';
 
 class ListProduct extends Component {
     render() {
-        let listItem = JSON.parse(localStorage.getItem(config.GET_ITEM_FROM_LOCALSTOAGE));
+        let listItem = this.props.listProduct;
   
         let itemElement;
         if(listItem.length > 0) {
@@ -31,4 +31,9 @@ class ListProduct extends Component {
     }
 }
 
-export default ListProduct;
+const mapStateToProps = (state) => {
+    return {
+        listProduct : state.listProduct
+    }
+}
+export default connect(mapStateToProps, null)(ListProduct);

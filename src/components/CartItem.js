@@ -8,17 +8,16 @@ class CartItem extends Component {
 
         this.state = {
             numberProduct: this.props.item.quantity
-        }        
+        }
     }
 
     handleChange(event){
         this.setState({numberProduct: event.target.value});
     }
 
-    render(){
-    
-        let {item, index} = this.props;     
-     
+    render(){ 
+        let {item, index} = this.props;
+
         let totalPriceElementCart = item.price * item.quantity;
 
         return(

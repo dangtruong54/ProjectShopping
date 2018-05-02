@@ -62,7 +62,7 @@ class ItemProduct extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleAddProduct: (item, numberProduct) => {  
+        handleAddProduct: (item, numberProduct) => {
             dispatch(actAddProduct(item, numberProduct));
         }
     }

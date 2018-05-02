@@ -1,5 +1,9 @@
-// import * as config from './../constants/config';
+import * as type from './../constants/index';
+import * as config from './../constants/config';
 
+if (localStorage.getItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE) === null || localStorage.getItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE).length === 0) {
+    localStorage.setItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE, "[]");
+}
 let defaulState = [
     {
         id: 'aplusautomation',
@@ -23,7 +27,7 @@ let defaulState = [
         id: 'robofigcombo',
         title: 'robo fig combo',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dicta asperiores veniam repellat unde debitis quisquam magnam magni ut deleniti!',
-        price: 12,
+        price: 15,
         quantity: 1,
         buy: true,
         image: '/images/robo_fig_combo.jpg'
@@ -39,7 +43,12 @@ let defaulState = [
     }   
 ];
 
-const listProduct = (state = defaulState, action) => {   
-    return state;
+const listProduct = (state = defaulState, action) => {
+    switch(action.type) {
+        case type.LIST_PRODUCT:
+            return state;
+        default:     
+            return state;
+    }
 }
 export default listProduct;

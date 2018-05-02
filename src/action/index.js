@@ -7,3 +7,10 @@ export const actAddProduct = (item, numberProduct) => {
         numberProduct
     }
 }
+
+export const actListProduct = () => {
+    return {
+        type: type.LIST_PRODUCT
+    }
+}
+
