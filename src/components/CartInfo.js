@@ -7,7 +7,7 @@ class CartInfo extends Component {
     
     render() {       
         let productsCart = JSON.parse(localStorage.getItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE)) || [];
-        console.log(productsCart);
+
         let elementCart = null;
         if(productsCart.length > 0){
             elementCart = productsCart.map((item, index) => {
@@ -30,3 +30,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, null)(CartInfo);
+
+// export default CartInfo;

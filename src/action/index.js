@@ -14,3 +14,20 @@ export const actListProduct = () => {
     }
 }
 
+export const actDeleteProduct = (item) => {
+    return {
+        type: type.DELETE_PRODUCT,
+        item
+    }
+}
+
+
+export const actEditProduct = (item) => {
+    console.log(`actEditProduct`)
+    return {
+        type: type.EDIT_PRODUCT,
+        item
+    }
+}
+
+
