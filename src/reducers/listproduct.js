@@ -14,15 +14,7 @@ let defaulState = [
         buy: true,
         image: '/images/aplusautomation.jpg'
     },
-    {
-        id:'aplusmedia',
-        title: 'aplus media',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dicta asperiores veniam repellat unde debitis quisquam magnam magni ut deleniti!',
-        price: 12,
-        quantity: 1,
-        buy: false,
-        image: '/images/aplus-media.jpg'
-    },
+    
     {
         id: 'robofigcombo',
         title: 'robo fig combo',
@@ -40,7 +32,16 @@ let defaulState = [
         quantity: 1,
         buy: true,
         image: '/images/target-leap-frog.jpg'
-    }   
+    },
+    {
+        id:'aplusmedia',
+        title: 'aplus media',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dicta asperiores veniam repellat unde debitis quisquam magnam magni ut deleniti!',
+        price: 12,
+        quantity: 1,
+        buy: false,
+        image: '/images/aplus-media.jpg'
+    }
 ];
 
 const listProduct = (state = defaulState, action) => {

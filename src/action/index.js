@@ -23,7 +23,6 @@ export const actDeleteProduct = (item) => {
 
 
 export const actEditProduct = (item) => {
-    console.log(`actEditProduct`)
     return {
         type: type.EDIT_PRODUCT,
         item

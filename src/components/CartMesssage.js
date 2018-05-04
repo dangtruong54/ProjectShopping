@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class CartMesssage extends Component {
     render() {
+        let {message} = this.props;
         return(
-            <div className="alert alert-success" role="alert" id="mnotification">Updated <b>ivysaur</b></div>
+            <div className="alert alert-success" role="alert" id="mnotification">{message} <b>Product</b></div>
         );
     }
 }
 
-export default CartMesssage;    
+const mapStateToProps = (state) => {
+    return {
+        message : state.message
+    }
+}
+
+export default connect(mapStateToProps, null)(CartMesssage);    

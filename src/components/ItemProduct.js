@@ -11,6 +11,7 @@ class ItemProduct extends Component {
         this.state = {
             numberProduct: 1
         }
+        
     }
 
     handleChange(event){
@@ -56,7 +57,6 @@ class ItemProduct extends Component {
             </div>
         )
     }
-
 }
 
 

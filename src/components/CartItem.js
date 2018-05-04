@@ -8,7 +8,7 @@ class CartItem extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
-        // this.handleEdit = this.handleEdit.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
 
         this.state = {
             numberProduct: 0
@@ -23,7 +23,7 @@ class CartItem extends Component {
         this.props.handleDeleteItem(item);
     }
 
-    handleEdit= item =>{
+    handleEdit(item){
         this.props.actEditProduct(item);
     }
 
@@ -34,15 +34,25 @@ class CartItem extends Component {
         
         let quantity = (this.state.numberProduct !== 0) ? this.state.numberProduct : item.quantity;
 
+        let itemEdit = {
+                id: item.id,
+                title: item.title,
+                description: item.description,
+                price: item.price,
+                quantity: quantity,
+                buy: item.buy,
+                image: item.image
+            }
+
         return(
             <tr>
                 <th scope="row">{index + 1}</th>
                 <td>{item.title}</td>
                 <td>{item.price} USD</td>
-                <td><input name="numberProduct" onChange={this.handleChange} type="number" value={quantity} min="{1}"/></td>
+                <td><input name="numberProduct" onChange={this.handleChange} type="number" value={quantity} min="1"/></td>
                 <td><strong>{totalPriceElementCart} USD</strong></td>
                 <td>
-                    <a className="label label-info update-cart-item" role='button' onClick={() => this.handleEdit(item)} data-product="">Update</a>
+                    <a className="label label-info update-cart-item" role='button' onClick={() => this.handleEdit(itemEdit)} data-product="">Update</a>
                     <a className="label label-danger delete-cart-item" role='button' onClick={() => this.handleDelete(item)} data-product="">Delete</a>
                 </td>
             </tr>

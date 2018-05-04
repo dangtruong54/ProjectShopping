@@ -6,11 +6,13 @@ import * as config from './../constants/config';
 class CartInfo extends Component {
     
     render() {       
-        let productsCart = JSON.parse(localStorage.getItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE)) || [];
+        // let {cartInfo} = this.props;
 
+        let cartInfo = JSON.parse(localStorage.getItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE));
+    
         let elementCart = null;
-        if(productsCart.length > 0){
-            elementCart = productsCart.map((item, index) => {
+        if(cartInfo.length > 0){
+            elementCart = cartInfo.map((item, index) => {
                 return <CartItem item={item} key={index} index={index} />
             });
         }
@@ -25,7 +27,7 @@ class CartInfo extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        itemCart : state.cartInfo
+        cartInfo : state.cartInfo
     }
 }
 
