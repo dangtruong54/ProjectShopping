@@ -1,35 +1,103 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { actDeleteProduct, actEditProduct } from '../action';
 
 class CartItem extends Component {
-    render(){
 
-        let elementCart = this.props.itemCart;
+    constructor(props){
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
 
-        // if(!elementCart.length > 0) return null
+        this.state = {
+            numberProduct: 0
+        }
+    }
 
-        // elementCart = 
+    componentWillMount() {
+        console.log('componentWillMount');    
+      }
+    
+      componentDidMount() {
+        console.log('componentDidMount');    
+      }
+    
+      componentWillUnmount(){
+        console.log('componentDidMount');
+      }
+    
+      componentWillReceiveProps(nextProps) {
+        console.log('componentWillReceiveProps');    
+      }
+    
+      shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate - nextProps - nextState');    
+      }
+    
+      componentWillUpdate(nextProps, nextState) {
+        console.log('componentWillUpdate - nextProps - nextState');
+      } 
+    
+      componentDidUpdate(prevProps, prevState) {
+        console.log('componentDidUpdate - prevProps - prevState');
+      }
+    
+
+    handleChange(event){
+        this.setState({numberProduct: event.target.value});
+    }
+
+    handleDelete(item){
+        this.props.handleDeleteItem(item);
+    }
+
+    handleEdit(item){
+        this.props.actEditProduct(item);
+    }
+
+    render(){ 
+        let {item, index} = this.props;
+
+        let totalPriceElementCart = item.price * item.quantity; 
         
+        let quantity = (this.state.numberProduct !== 0) ? this.state.numberProduct : item.quantity;
+
+        let itemEdit = {
+                id: item.id,
+                title: item.title,
+                description: item.description,
+                price: item.price,
+                quantity: quantity,
+                buy: item.buy,
+                image: item.image
+            }
+
         return(
             <tr>
-                <th scope="row">1</th>
-                <td>Lorem ipsum.</td>
-                <td>12 USD</td>
-                <td><input name="cart-item-quantity-1" type="number" defaultValue="{1}" min="{1}"/></td>
-                <td><strong>12 USD</strong></td>
+                <th scope="row">{index + 1}</th>
+                <td>{item.title}</td>
+                <td>{item.price} USD</td>
+                <td><input name="numberProduct" onChange={this.handleChange} type="number" value={quantity} min="1"/></td>
+                <td><strong>{totalPriceElementCart} USD</strong></td>
                 <td>
-                    <a className="label label-info update-cart-item" role='button' data-product="">Update</a>
-                    <a className="label label-danger delete-cart-item" role='button' data-product="">Delete</a>
+                    <a className="label label-info update-cart-item" role='button' onClick={() => this.handleEdit(itemEdit)} data-product="">Update</a>
+                    <a className="label label-danger delete-cart-item" role='button' onClick={() => this.handleDelete(item)} data-product="">Delete</a>
                 </td>
             </tr>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return{
-        itemCart:  state.cartInfo
-    }  
+const mapDispatchToProps = (dispatch, ownProps) => {    
+    return {
+        handleDeleteItem : (item) => {   
+            dispatch(actDeleteProduct(item));
+        },
+        actEditProduct : (item) => {
+            dispatch(actEditProduct(item));
+        }
+    }
 }
 
-export default connect(mapStateToProps, null)(CartItem);
+export default connect(null, mapDispatchToProps)(CartItem);

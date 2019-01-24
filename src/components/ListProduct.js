@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 
 class ListProduct extends Component {
     render() {
-        let {listItem} = this.props;
-   
+        let listItem = this.props.listProduct;
+  
         let itemElement;
-        if(listItem !== null) {
+        if(listItem.length > 0) {
             itemElement = listItem.map((item, index) => {
                 return <ItemProduct key={index} item={item} />
             })
+        }else{
+            itemElement = <p>Not have product!</p>;
         }
-
-
         return (
             <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div className="panel panel-primary"> 
@@ -33,8 +33,7 @@ class ListProduct extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        listItem : state.listProduct
+        listProduct : state.listProduct
     }
 }
-
 export default connect(mapStateToProps, null)(ListProduct);

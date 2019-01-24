@@ -7,3 +7,26 @@ export const actAddProduct = (item, numberProduct) => {
         numberProduct
     }
 }
+
+export const actListProduct = () => {
+    return {
+        type: type.LIST_PRODUCT
+    }
+}
+
+export const actDeleteProduct = (item) => {
+    return {
+        type: type.DELETE_PRODUCT,
+        item
+    }
+}
+
+
+export const actEditProduct = (item) => {
+    return {
+        type: type.EDIT_PRODUCT,
+        item
+    }
+}
+
+
