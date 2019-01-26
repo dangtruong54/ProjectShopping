@@ -1,5 +1,5 @@
-import * as type from './../constants/index';
-import * as config from './../constants/config';
+import * as type from '../constants/index';
+import * as config from '../constants/config';
 
 if (localStorage.getItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE) === null || localStorage.getItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE).length === 0) {
     localStorage.setItem(config.GET_ITEM_CART_FROM_LOCALSTORAGE, "[]");

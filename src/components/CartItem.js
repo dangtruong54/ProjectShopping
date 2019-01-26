@@ -15,35 +15,6 @@ class CartItem extends Component {
         }
     }
 
-    componentWillMount() {
-        console.log('componentWillMount');    
-      }
-    
-      componentDidMount() {
-        console.log('componentDidMount');    
-      }
-    
-      componentWillUnmount(){
-        console.log('componentDidMount');
-      }
-    
-      componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps');    
-      }
-    
-      shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate - nextProps - nextState');    
-      }
-    
-      componentWillUpdate(nextProps, nextState) {
-        console.log('componentWillUpdate - nextProps - nextState');
-      } 
-    
-      componentDidUpdate(prevProps, prevState) {
-        console.log('componentDidUpdate - prevProps - prevState');
-      }
-    
-
     handleChange(event){
         this.setState({numberProduct: event.target.value});
     }
